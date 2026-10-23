@@ -9,7 +9,7 @@
 The table below maps the standard `STD_LOGIC` signal values to the physical slide switches (`SW0`, `SW1`), user LED (`LD0`), and testbench simulation windows:
 
 | Input `A` (`SW0`) | Input `B` (`SW1`) | Output `Y` (`LD0`) |
-| :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| :---: | :---: | :---: | 
 | `'0'` | `'0'` | `'0'` | 
 | `'0'` | `'1'` | `'0'` |
 | `'1'` | `'0'` | `'0'` | 
