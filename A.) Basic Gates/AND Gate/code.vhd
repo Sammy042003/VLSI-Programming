@@ -42,6 +42,7 @@ end Behavioral;
 
 -- -----------------------------------------------------------------
 -- 3. Testbench: Simulates all 4 input combinations (00, 01, 10, 11)
+--    (Self check testbench)
 -- -----------------------------------------------------------------
 
 library IEEE;
