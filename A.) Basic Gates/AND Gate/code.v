@@ -55,3 +55,15 @@ endmodule
 // ========================================================================
 // 4. Testbench: Simulates all 4 binary input combinations (00, 01, 10, 11)
 // ========================================================================
+
+module and_gate_tb;
+
+    // Testbench signals: 'reg' for driven inputs, 'wire' for observed output
+    reg  A_tb;
+    reg  B_tb;
+    wire Y_tb;
+
+    // InstantiTE THE Unit Under Test (UUT)
+    and_gate UUT (
+        .A(A_tb),
+        
