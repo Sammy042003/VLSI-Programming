@@ -1,6 +1,6 @@
-// ---------------------------------------------------------------
+// --------------------------------------------------------------------
 // AND Gate in VLSI (Dataflow, Gate-Level and Behavioral Architectures)
-// ---------------------------------------------------------------
+// --------------------------------------------------------------------
 
 `timescale 1ns / 1ps
 
@@ -16,9 +16,38 @@ module and_gate (
 );
 
     assign Y = A & B;
+    
 endmodule
 
 // -------------------------------------------------------------------
 // 2. Alternative: Gate-Level Modeling (Uses built-in 'and' primitive)
 // -------------------------------------------------------------------
 
+module and_and_gate (
+    input wire A,
+    input wire B,
+    input wire Y
+);
+
+    // Syntax : and <instance_name> (output, input1, input2)
+    and u1(Y, A, B);
+    
+endmodule
+
+// --------------------------------------------------------------------
+// 3. Alternative: Behavioral Modeling (Uses procedural 'always' block)
+// --------------------------------------------------------------------
+
+module and_gate_behavioral (
+    input wire A,
+    input wire B,
+    output reg Y       // Declared as 'reg' because it is assigned inside 'always'
+);
+
+    always @(*) begin
+        if (A == 1'b1 && B == 1'b1)
+            Y = 1'b1;
+        else
+            Y = 1'b0;
+    end
+endmodule
