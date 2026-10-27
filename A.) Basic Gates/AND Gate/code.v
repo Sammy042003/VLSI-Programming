@@ -66,4 +66,37 @@ module and_gate_tb;
     // InstantiTE THE Unit Under Test (UUT)
     and_gate UUT (
         .A(A_tb),
+        .B(B_tb),
+        .Y(Y_tb)
+    );
+
+    // Stimulus block to test every row of the truth table
+    initial begin
+        $display("Starting 2-Input AND Gate Simulation...");
+        $monitor("Time = %0t ns | A = %b, B = %b | Y = %b", $time, A_tb, B_tb, Y_tb);
+
+        // Case 1: 0 AND 0 = 0
+        A_tb = 1'b0; B_tb = 1'b0;
+        #10;
+        if (Y_tb !== 1'b0) $display("Error: Test failed for 00");
+
+        // Case 2: 0 AND 1 = 0
+        A_tb = 1'b0; B_tb = 1'b1;
+        #10;
+        if (Y_tb !== 1'b0) $display("Error: Test failed for 01");
+
+        // Case 3: 1 AND 0 = 0
+        A_tb = 1'b1; B_tb = 1'b0;
+        #10;
+        if (Y_tb !== 1'b0) $display("Error: Test failed for 10");
+
+        // Case 4: 1 AND 1 = 1
+        A_tb = 1'b1; B_tb = 1'b1;
+        #10;
+        if (Y_tb !== 1'b1) $display("Error: Test failed for 11");
+
+        $display("All AND gate test cases passed!");
+        $finish; // Stop simulation
+    end
+endmodule
         
