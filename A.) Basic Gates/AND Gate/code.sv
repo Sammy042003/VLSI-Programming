@@ -56,3 +56,45 @@ endmodule
 // ========================================================================
 // 4. Testbench: Simulates all 4 binary input combinations (00, 01, 10, 11)
 // ========================================================================
+
+module and_gate_tb;
+   // Unified 'logic' type works for both driven inputs and observed outputs
+   logic A;
+   logic B;
+   logic Y;
+
+   // Instantiate the Unit Under Test (UUT) using SystemVerilog wildcard (.*) port connection (automatically connects matching signal names A, B, Y))
+   and_gate UUT (.*);
+
+   // Stimulus block with native SystemVerilog immediate assertions
+   initial begin
+      $display("Starting SystemVerilog 2-Input AND Gate Simulation....");
+      $monitor("Time = %0t ns | A = %b, B = %b | Y = %b", $time, A, B, Y);
+
+      // Case 1: 0 AND 0 = 0
+      A = '0; B = '0;
+      #10;
+      assert (Y === '0) else $error("Test failed for input 00");
+
+      // Case 2: 0 AND 1 = 0
+      A = '0; B = '1;
+      #10;
+      assert (Y === '0) else $error("Test failed for input 01");
+
+      // Case 3: 1 AND 0 = 0
+      A = '1; B = '0;
+      #10;
+      assert (Y === '0) else $error("Test failed for input 10");
+
+      // Case 4: 1 AND 1 = 1
+      A = '1; B = '1;
+      #10;
+      assert (Y === '1) else $error("Test failed for input 11");
+
+      $display("All SystemVerilog AND gate test cases passed!");
+      $finish; // Stop simulation
+   end
+
+endmodule
+      
+      
