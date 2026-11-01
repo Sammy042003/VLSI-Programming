@@ -1,4 +1,4 @@
-# VLSI-Programming
+# VLSI-Programming Languages
 
 `1.)` VHDL  
 `2.)` Verilog  
