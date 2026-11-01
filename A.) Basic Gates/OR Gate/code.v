@@ -28,3 +28,13 @@ module or_gate_structural (
     input  wire A;
     input  wire B;
     output wire Y
+);
+
+    or u1 (Y, A, B);
+
+endmodule
+
+// ------------------------------------------------------------------------
+// 1C. BEHAVIORAL MODELING (Alternative using a procedural 'always' block)
+// Note: Output inside an 'always' block must be declared as 'reg'.
+// ------------------------------------------------------------------------
