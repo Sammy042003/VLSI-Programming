@@ -40,3 +40,16 @@ module or_gate_comb (
     
 endmodule
 
+// ---------------------------------------------------------------
+// 3. GATE-LEVEL MODELING (Built-in primitive with 'logic' ports)
+// ---------------------------------------------------------------
+
+module or_gate_structural (
+    input  logic A,
+    input  logic B,
+    output logic Y
+);
+
+    or u1 (Y, A, B);
+
+endmodule
