@@ -10,8 +10,8 @@
 // ------------------------------------------------------------------
 
 module or_gate (
-    input  logic A;    // Input 1
-    input  logic B;    // Input 2
+    input  logic A,    // Input 1
+    input  logic B,    // Input 2
     output logic Y     // Output  (Y = A | B)
 );
 
@@ -19,5 +19,24 @@ module or_gate (
 
 endmodule
 
+// ---------------------------------------------------------------------
+// 2. BEHAVIORAL MODELING (Using SystemVerilog 'always_comb')
+// 'always_comb' automatically infers the sensitivity list and prevents
+// accidental latches during synthesis.
+// ---------------------------------------------------------------------
 
+module or_gate_comb (
+    input  logic A,
+    input  logic B,
+    output logic Y
+);
+
+    always_comb begin
+        if (A || B)
+            Y = 1'b1;
+        else
+            Y = 1'b0;
+    end
+    
+endmodule
 
