@@ -25,8 +25,8 @@ endmodule
 // --------------------------------------------------------------------------
 
 module or_gate_structural (
-    input  wire A;
-    input  wire B;
+    input  wire A,
+    input  wire B,
     output wire Y
 );
 
