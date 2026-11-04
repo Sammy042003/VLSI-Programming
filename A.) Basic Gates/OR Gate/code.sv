@@ -53,3 +53,5 @@ module or_gate_structural (
     or u1 (Y, A, B);
 
 endmodule
+
+// ==========================================================
