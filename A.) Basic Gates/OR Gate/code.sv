@@ -55,7 +55,7 @@ module or_gate_structural (
 endmodule
 
 // ============================================================================
-// 2. SELF-CHECKING TESTBENCH
+// SELF-CHECKING TESTBENCH
 // Uses 'logic' signals, wildcard port connections (.*), and assertions.
 // ============================================================================
 module or_gate_tb;
