@@ -54,6 +54,33 @@ module or_gate_structural (
 
 endmodule
 
-// ==========================================================
+// ============================================================================
+// 2. SELF-CHECKING TESTBENCH
+// Uses 'logic' signals, wildcard port connections (.*), and assertions.
+// ============================================================================
+module or_gate_tb;
+    // 'logic' works for both driven testbench inputs and monitored outputs
+    logic A;
+    logic B;
+    logic Y;
 
-//=========================================================
+    // Instantiate the Unit Under Test (UUT) using '.*' wildcard port connection
+    or_gate uut (.*);
+
+    initial begin
+        $display("Time (ns) | A  B | Y");
+        $monitor("%0t\t  | %b  %b | %b", $time, A, B, Y);
+
+        // Step through all 4 input combinations (00, 01, 10, 11)
+        for (int i = 0; i < 4; i++) begin
+            {A, B} = 2'(i);
+            #10;
+            // Self-checking immediate assertion
+            assert (Y === (A | B))
+                else $error("Mismatch at time %0t: A=%b, B=%b, Y=%b", $time, A, B, Y);
+        end
+
+        $display("Simulation complete: All 4 test cases passed.");
+        $finish;
+    end
+endmodule
