@@ -52,7 +52,32 @@ entity tb_not_gate is
 end tb_not_gate;
 
 architecture sim of tb_not_gate is
-    -- Signals to the connect to the Unit Under Test (UUT)
+    -- Signals to connect to the Unit Under Test (UUT)
     Signal A_tb : STD_LOGIC := '0';
     Signal B_tb : STD_LOGIC;
 begin
+    -- Instantiate the NOT gate (using the Dataflow architecture)
+    UUT: entity work.not_gate(Dataflow)
+        port map (
+            A <= A_tb,
+            Y <= Y_tb
+        );
+
+    -- Stimulus process to toggle input A
+    stim_proc: process
+    begin
+        -- Test Case 1: Input '0' -> Expected Output '1'
+        A_tb <= '0';
+        wait for 10 ns;
+
+        -- Test Case 2: Input '1' -> Expected Output '0'
+        A_tb <= '1';
+        wait for 10 ns;
+
+        -- Return to '0' and finish
+        A_tb <= '0';
+        wait for 10 ns;
+
+        wait;  -- Suspend simulation indefinitely
+    end process;
+end sim;
