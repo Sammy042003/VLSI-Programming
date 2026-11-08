@@ -39,3 +39,20 @@ begin
         end if;
     end process;
 end Behavioral;
+
+-- =====================================================================
+-- TESTBENCH (For Simulation & Verification)
+-- Applies stimulus ('0' and '1') to the NOT gate to verify its output.
+-- =====================================================================
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity tb_not_gate is
+-- A testbench entity has no input or output ports
+end tb_not_gate;
+
+architecture sim of tb_not_gate is
+    -- Signals to the connect to the Unit Under Test (UUT)
+    Signal A_tb : STD_LOGIC := '0';
+    Signal B_tb : STD_LOGIC;
+begin
