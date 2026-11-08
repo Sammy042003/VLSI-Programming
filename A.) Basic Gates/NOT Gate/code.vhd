@@ -14,7 +14,6 @@ end not_gate;
 -- 1. ARCHITECTURE (Dataflow Modeling - Most Common & Recommended)
 -- Uses the concurrent signal assignment operator (<=) and the 'not' keyword.
 -- ---------------------------------------------------------------------------
-
 architecture Dataflow of not_gate is
 begin
 
@@ -23,3 +22,20 @@ begin
 
 end Dataflow;
 
+-- ---------------------------------------------------------------------
+-- 2. ALTERNATIVE ARCHITECTURE (Behavioral Modeling)
+-- Uses a process block that triggers whenever input 'A' changes state.
+-- ---------------------------------------------------------------------
+architecture Behavioral of not_gate is
+begin
+    process(A)
+    begin
+        if (A = '0') then
+            Y <= '1';
+        elsif (A = '1') then
+            Y <= '0';
+        else
+            Y <= 'X';     -- Handles unknown/uninitializes logic states
+        end if;
+    end process;
+end Behavioral;
