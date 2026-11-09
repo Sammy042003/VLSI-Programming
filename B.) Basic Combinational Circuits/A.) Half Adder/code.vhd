@@ -25,4 +25,14 @@ begin
     Carry <= A AND B;
 
 end Dataflow;
+
+-- --------------------------------------------------------------------
+-- 2. Behavioral Architecture (Alternative style using a process block)
+--    Evaluates sequentially whenever input A or B changes.
+-- --------------------------------------------------------------------
+architecture Behavioral of half_adder is
+begin
+    process(A, B)
+    
+
               
