@@ -17,3 +17,22 @@ module not_gate_dataflow (
 
 endmodule
 
+// ---------------------------------------------------------------------
+// 2. COMBINATIONAL RTL MODELING (Using 'always_comb')
+// 'always_comb' automatically infers the sensitivity list and prevents
+// accidental latch inference at compile/synthesis time.
+// ---------------------------------------------------------------------
+module not_gate_comb (
+    input  logic A;
+    output logic Y
+);
+
+    always_comb begin
+        Y = ~A;
+    end
+endmodule
+
+// -------------------------------------------------------------------
+// 3. PARAMETERIZED N-BIT INVERTER (Bonus SystemVerilog Feature)
+// Scales from a 1-bit NOT gate to any bus width (default WIDTH = 1).
+// -------------------------------------------------------------------
