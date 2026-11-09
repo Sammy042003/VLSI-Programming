@@ -13,4 +13,20 @@ entity nand_gate is
     );
 end nand_gate;
 
+-- -----------------------------------------------------------------------
+-- 1. Dataflow Architecture (Recommended for basic logic gates)
+--    Uses concurrent signal assignment and the built-in 'nand' operator.
+-- -----------------------------------------------------------------------
+architecture Dataflow of nand_gate is
+begin
+
+    Y <= A nand B;
+
+end Dataflow;
+
+-- --------------------------------------------------------------------------------
+-- 2. Alternative Behavioral Architecture
+--    Describes circuit behavior using a sequential process and truth-table logic.
+-- --------------------------------------------------------------------------------
+
 
