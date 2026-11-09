@@ -30,4 +30,12 @@ module not_gate_structural (
 
 endmodule
 
-
+// ----------------------------------------------------------------------------
+// 3. BEHAVIORAL MODELING
+// Uses a procedural 'always @(*)' block that executes whenever input A changes.
+// -----------------------------------------------------------------------------
+module not_gate_behavioral (
+    input  wire A;
+    output reg  Y     // Declared as a 'reg' because it is assigned inside an always block
+);
+    
