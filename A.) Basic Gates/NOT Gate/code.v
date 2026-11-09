@@ -26,7 +26,7 @@ module not_gate_structural (
     input wire Y
 );
 
-  not U1 (Y, A);
+    not U1 (Y, A);
 
 endmodule
 
