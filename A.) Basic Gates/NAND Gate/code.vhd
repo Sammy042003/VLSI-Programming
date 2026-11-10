@@ -28,5 +28,20 @@ end Dataflow;
 -- 2. Alternative Behavioral Architecture
 --    Describes circuit behavior using a sequential process and truth-table logic.
 -- --------------------------------------------------------------------------------
+architecture behavioral of nand_gate is
+begin
+    process(A, B)
+    begin
+        if (A = '1' and B = '1') then
+            Y <= '0';
+        else
+            Y <= '1';
+        end if
+    end process;
+end behavioral;
+
+-- ============================================================
+-- Self-Checking Testbench (Simulates all 4 input combinations)
+-- ============================================================
 
 
